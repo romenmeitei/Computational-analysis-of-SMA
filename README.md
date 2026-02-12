@@ -1,5 +1,5 @@
-**Project Title
-**Ensemble Docking and Molecular Dynamics Reveal Allosteric Stabilization of hnRNPA1 UP1 Interdomain Dynamics by a Small-Molecule Natural Product
+**Project Title**
+****Ensemble Docking and Molecular Dynamics Reveal Allosteric Stabilization of hnRNPA1 UP1 Interdomain Dynamics by a Small-Molecule Natural Product**
 
 **Overview**
 This repository contains the complete computational workflow used in the study investigating small-molecule modulation of the hnRNPA1 UP1 interdomain interface.
