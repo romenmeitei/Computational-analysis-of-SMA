@@ -1,109 +1,70 @@
-**Project Title**
-****Ensemble Docking and Molecular Dynamics Reveal Allosteric Stabilization of hnRNPA1 UP1 Interdomain Dynamics by a Small-Molecule Natural Product**
+# Ensemble Docking and Molecular Dynamics Reveal Allosteric Stabilization of hnRNPA1 UP1 Interdomain Dynamics by a Small-Molecule Natural Product
 
-**Overview**
-This repository contains the complete computational workflow used in the study investigating small-molecule modulation of the hnRNPA1 UP1 interdomain interface.
+![Python](https://img.shields.io/badge/python-3.10-blue)
+![Platform](https://img.shields.io/badge/platform-Google%20Colab-orange)
+![License](https://img.shields.io/badge/license-MIT-green)
+
+---
+
+# Overview
+
+This repository contains the **complete computational workflow** used to investigate small-molecule modulation of the **hnRNPA1 UP1 interdomain interface**.
 
 The workflow integrates:
 
-High-throughput virtual screening (HTVS)
+- High-Throughput Virtual Screening (HTVS)
+- Composite ligand prioritization
+- Ensemble docking
+- Molecular dynamics simulations
+- Structural and dynamic trajectory analysis
 
-Composite ligand scoring
+The repository is provided to ensure **full transparency, reproducibility, and traceability** of ligand prioritization and mechanistic analysis.
 
-Molecular dynamics simulations
+---
 
-Ensemble docking
+## Computational Workflow
 
-Structural and dynamic analyses
+```mermaid
+flowchart TD
 
-The repository is provided to ensure full transparency and reproducibility of ligand prioritization and mechanistic analysis.
-Repository Structure
-1. Ligand Ranking Workflow
+A[Phytochemical Library 2847 KEGG compounds] --> B[PubChem Descriptor Retrieval]
 
-Ligand_ranking.ipynb
+B --> C[High Throughput Virtual Screening using AutoDock Vina]
 
-Implements composite scoring:
+C --> D[Docking Output Processing]
 
-Z-normalized docking energy
+D --> E[Feature Extraction]
 
-Pose stability metric
+E --> E1[Docking Energy]
+E --> E2[Pose Stability Metric]
+E --> E3[Physicochemical Descriptors]
 
-ADMET proxy score
+E1 --> F[Z Score Normalization]
+E2 --> F
+E3 --> F
 
-Weighted scoring formula:
+F --> G[Composite Scoring]
 
-CS = 0.5 × Z(|E_dock|)
-+ 0.2 × Z(Pose Stability)
-+ 0.3 × Z(ADMET proxy)
+G --> H[Weighted Scoring Function]
 
-Performs ligand-level ranking (best pose per PubChem CID)
+H --> I[Ligand Level Ranking Best Pose per PubChem CID]
 
+I --> J[Top 100 Ligands]
 
+J --> K[Selection of Withanolide D]
 
-2. Ranked Dataset
+K --> L[Molecular Dynamics Simulations]
 
-Top100_Ligands_Composite_OptionA.csv
+L --> M[Trajectory Analysis]
 
-Contains:
+M --> M1[RMSD RMSF]
+M --> M2[Radius of Gyration]
+M --> M3[Interdomain Distance]
+M --> M4[Protein Ligand Contacts]
 
-Compound Name
+M1 --> N[Mechanistic Interpretation]
+M2 --> N
+M3 --> N
+M4 --> N
 
-PubChem CID
-
-Docking Energy
-
-Pose Stability Score
-
-ADMET Proxy
-
-Composite Score
-
-Rank Position
-
-This dataset represents the objectively filtered top 100 ligands from the screened library of 2,847 phytochemicals.
-
-
-
-Selection of Withanolide D
-
-Withanolide D was selected from the top-ranked ligands based on:
-
-Objective composite ranking
-
-Balanced scoring profile (no extreme bias toward single metric)
-
-Chemical tractability
-
-Favorable physicochemical properties
-
-Literature-supported neurobiological relevance
-
-The complete ranked dataset allows independent verification of this prioritization.
-
-
-
-**Reproducibility
-**
-All analyses were performed using:
-
-Python 3.10
-
-NumPy
-
-pandas
-
-scikit-learn
-
-SciPy
-
-matplotlib
-
-The ranking workflow can be executed directly in Google Colab or locally using Jupyter Notebook.
-
-
-
-**Citation**
-
-If using this workflow or dataset, please cite:
-
-Meitei RL et al., "Ensemble Docking and Molecular Dynamics Reveal Allosteric Stabilization of hnRNPA1 UP1 Interdomain Dynamics by a Small-Molecule Natural Product."
+N --> O[Allosteric Stabilization of hnRNPA1 UP1]
